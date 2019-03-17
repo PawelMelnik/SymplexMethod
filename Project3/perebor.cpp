@@ -4,7 +4,6 @@
 #include "DMatrix.h"
 using namespace std;
 
-#define EPS 0.01
 
 void SubMatrix();
 
@@ -43,24 +42,32 @@ double** ReadMatrix(const char* input)
 
 void SubMatrix()
 {
-	int M = 3, N = 3;
-	double** arr = ReadMatrix("input.txt");
-	double b[] = { 1, 2, 3, 4, 5 };
-	double c[] = {0,0,0,0,0};
-	DMatrix<double> A(3, 2, arr);
-	DMatrix<double> A1("input.txt");
-	/*A.print();
-	for(int i = 0; i < M; ++i)
+	const char* left_matrix_file = "left_matrix.txt";
+	const char* right_matrix_file = "right_matrix.txt";
+	DMatrix<double> A1(left_matrix_file);
+	DMatrix<double> A2(left_matrix_file);
+	DMatrix<double> B1(right_matrix_file);
+	A1.print();
+	B1.print();
+	double b[] = {0, 1, 2, 3};
+	double c[] = {0, 0, 0, 0};
+
+	// Ioann method
+	for(int i = 0; i < A1.get_height(); ++i)
 	{
-		if (fabs(A[i][i]) < EPS)
+		if (fabs(A1[i][i]) < EPS)
 			break;
-		gauss_step(i, i, A, b, c);
+		gauss_step(i, i, A1, b, c);
+		A1.print();
+		cout << b[1] << endl << b[2] << endl << b[3] << endl;
 		printf("\n\n");
 	}
-	A.print();*/
-	A.print();
-	double** arr1 = ReadMatrix("input1.txt");
-	DMatrix<double> B(2, 3, arr1);
-	DMatrix<double> C = A * B;
-	C.print();
+	A1.print();
+
+	//Pahan method
+	cout << "---------------Pahan-----------";
+	gauss(A2, B1);
+	A2.print();
+	B1.print();
+
 }

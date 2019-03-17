@@ -24,6 +24,7 @@
   <ItemGroup>
     <ClInclude Include="DMatrix.h" />
     <ClInclude Include="DMatrix.hpp" />
+    <ClInclude Include="gauss_meth.hpp" />
     <ClInclude Include="gauss_meth.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

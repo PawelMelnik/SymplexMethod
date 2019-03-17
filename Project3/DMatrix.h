@@ -33,7 +33,8 @@ public:
 
 	void mult_line(int line, T val);
 	void add_lines(int i_from, int i_to, T val = 1);
-	void swapColumns(int i, int j)
+	void addLinesDivide(int i_from, int i_to, T mult, T div);
+	void swapColumns(int i, int j);
 
 	DMatrix inverse() = delete;
 	DMatrix transpose() = delete;

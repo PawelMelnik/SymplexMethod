@@ -68,6 +68,6 @@ void SubMatrix()
 	cout << "---------------Pahan-----------";
 	gauss(A2, B1);
 	A2.print();
-	B1.print();
+	//B1.print();
 
 }
